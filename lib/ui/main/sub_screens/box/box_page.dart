@@ -101,6 +101,7 @@ class BoxPage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const Spacer(),
                     GestureDetector(
                       onTap: ((){
                       }),
@@ -114,7 +115,8 @@ class BoxPage extends StatelessWidget {
                       child: Center(
                         child: Text("Оплатить ${state.allPrice??0} ₽", style: AppTextStyles.sfProDisplay(context, color: AppColors.cWhite),),
                       ),),
-                    )
+                    ),
+                    SizedBox(height: 10.h,)
                   ],
                 ));
           }else if(state.responseStatus == ResponseStatus.inFail){

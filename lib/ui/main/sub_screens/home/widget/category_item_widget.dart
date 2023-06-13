@@ -11,6 +11,7 @@ class CategoryItemWidget extends StatelessWidget {
     return ZoomTapAnimation(
       onTap: onTap,
       child: Container(
+        margin: EdgeInsets.only(top: 10.h),
         height: height(context)*0.2,
         decoration: BoxDecoration(
           image: DecorationImage(
