@@ -1,3 +1,5 @@
+import 'package:food_app/ui/main/sub_screens/box/widget/box_shimmer_widget.dart';
+
 import '../../../../utils/tools/file_importer.dart';
 import '../../widget/home_appbar.dart';
 
@@ -11,7 +13,7 @@ class BoxPage extends StatelessWidget {
       body:  BlocBuilder<FoodBloc, FoodState>(
         builder: (context, state) {
           if(state.responseStatus == ResponseStatus.inProgress){
-            return const FoodsShimmerWidget();
+            return const BoxShimmerWidget();
           }else if(state.responseStatus == ResponseStatus.inSuccess){
             FoodsModel categoryModel = state.foodsModel!;
             return SafeArea(
