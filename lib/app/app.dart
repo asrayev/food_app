@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => TabBoxBloc(),),
           BlocProvider(create: (context) => CategoryBloc()..add(CategoryEvent()),),
-          BlocProvider(create: (context) => FoodBloc()..add(FoodEvent()),),
+          BlocProvider(create: (context) => FoodBloc()..add(FoodGetEvent()),),
         ],
         child: const MyApp());
   }

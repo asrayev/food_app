@@ -1,7 +1,8 @@
 import '../../../../../utils/tools/file_importer.dart';
 
 class AllFoodsScreen extends StatefulWidget {
-  const AllFoodsScreen({Key? key}) : super(key: key);
+  final String title;
+  const AllFoodsScreen({Key? key, required this.title}) : super(key: key);
 
   @override
   State<AllFoodsScreen> createState() => _AllFoodsScreenState();
@@ -9,9 +10,11 @@ class AllFoodsScreen extends StatefulWidget {
 
 class _AllFoodsScreenState extends State<AllFoodsScreen> {
   int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(title: widget.title),
       body:  BlocBuilder<FoodBloc, FoodState>(
         builder: (context, state) {
           if(state.responseStatus == ResponseStatus.inProgress){

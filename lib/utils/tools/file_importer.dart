@@ -34,3 +34,8 @@ export 'package:food_app/bloc/food/food_bloc.dart';
 export 'package:food_app/ui/main/sub_screens/home/sub_screens/widget/food_grid_widget.dart';
 export 'package:food_app/ui/main/sub_screens/home/sub_screens/widget/foods_shimmer_widget.dart';
 export 'package:cached_network_image/cached_network_image.dart';
+export 'package:hive/hive.dart';
+export 'package:food_app/ui/main/sub_screens/home/sub_screens/widget/dialog_widget.dart';
+export 'package:food_app/ui/main/widget/custom_appbar.dart';
+
+

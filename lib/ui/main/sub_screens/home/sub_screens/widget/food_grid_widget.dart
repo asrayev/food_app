@@ -1,4 +1,3 @@
-import 'package:food_app/ui/main/sub_screens/home/sub_screens/widget/dialog_widget.dart';
 import 'package:food_app/utils/tools/file_importer.dart';
 
 class FoodGridWidget extends StatelessWidget {
@@ -23,15 +22,22 @@ class FoodGridWidget extends StatelessWidget {
               builder: (BuildContext context) {
                 return AddBoxDialog(
                   dishes: filteredDishes[index],
-                   message: "asdasdasdasd",
-                  onPinPressed: ((){}),
+                   message: "",
+                  onPinPressed: (()async{
+                    context.read<FoodBloc>().add(FoodPriceEvent(price: filteredDishes[index].price));
+                    context.read<FoodBloc>().add(FoodSaveEvent(foodIndex: filteredDishes[index].id));
+                    Navigator.pop(context);
+                    showSnackbar(context: context, message: "${filteredDishes[index].name} добавлен в корзину");
+                    // SaveBoxService.instance.
+                    // final box = await Hive.openBox('list');
+                  }),
                 );
               },
             );
           }),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: height(context)*0.15,
                child: ClipRRect(
                   borderRadius: BorderRadius.circular(10.r),
@@ -48,15 +54,6 @@ class FoodGridWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                // decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.circular(10.r),
-                //     color: AppColors.cF8F7F5,
-                //     image: DecorationImage(
-                //         image: NetworkImage(filteredDishes[index].imageUrl.toString())
-                //     )
-                //
-                // ),
-
               ),
               Text(filteredDishes[index].name.toString(),textAlign: TextAlign.center, maxLines: 2, style: AppTextStyles.sfProDisplay(context),)
             ],
